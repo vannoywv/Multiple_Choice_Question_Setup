@@ -8,7 +8,7 @@
 ### 6) query user to finalize the choice
 ###
 class Question:
-    def __init__(self, prompt: str, options: dict, response: str, output: str):
+    def __init__(self, prompt: str, options: dict, response: str = "", output: str = ""):
         self.prompt = prompt
         self.options = options
         self.response = response
@@ -70,7 +70,7 @@ def multi_choice(question):
         multi_choice(question=question)
 
     # Confirm the user's selection
-    confirm()
+    confirm(question=question)
     # Output response.
     return question.output
 
@@ -82,13 +82,13 @@ def confirm(question):
         print("Selection confirmed.")
     elif firm == "N":
         print("Restarting selection.")
-        multi_choice(question=question,)
+        multi_choice(question=question)
     else:
         del firm
         print("Option not supported")
-        confirm()
+        confirm(question=question)
 
 
-question1 = Question(prompt="Select an option.", options={"A": "o1", "B": "o2", "C": "o3"}, response=None, output=None)
+question1 = Question(prompt="Select an option.", options={"A": "o1", "B": "o2", "C": "o3"})
 response1 = multi_choice(question1)
 print(response1)
