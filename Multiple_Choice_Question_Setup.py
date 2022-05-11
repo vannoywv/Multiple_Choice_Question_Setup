@@ -8,7 +8,7 @@
 ### 6) query user to finalize the choice
 ###
 class Question:
-    def __init__(self, prompt: str, options: dict, response, output):
+    def __init__(self, prompt: str, options: dict, response: str, output: str):
         self.prompt = prompt
         self.options = options
         self.response = response
